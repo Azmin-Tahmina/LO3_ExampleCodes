@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <!--
+    Filename: person.html
+    Author:   Michael Grzesina (grzesinam)
+    Date:     Winter 2024
+    Purpose:  Demonstrate getters and setters
+    -->
+    <title>Examples of Getters and Setters</title>
+</head>
+<body>
+<h1>Demonstration of Getters and Setters</h1>
+<p id="output"></p>
+
+<script>
+    class Person {
+        /**
+         * Person's name
+         */
+        name;
+        /**
+         * Person's birthdate
+         */
+        #birthday;
+        /**
+         * List of fruits
+         *
+         * @type {[]}
+         */
+        #fruits = [];
+
+        /**
+         * Constructor to create a Person object
+         *
+         * @param name      Person's name as a string
+         * @param year      Birth year as a number
+         * @param month     Birth month as a number from 1 to 12
+         * @param day       Birth day
+         */
+        constructor(name, year, month, day) {
+            this.name = name;
+            // Since we are given a month from 1-12 but Date uses 0-11, subtract one
+            this.#birthday = new Date(year, month - 1, day);
+        }
+
+
+        /**
+         * Return the age in years that the person will turn as of their birthday this year
+         *
+         * @returns {number}    Age as of their birthday this year
+         */
+        get ageThisYear() {
+            return new Date().getFullYear() - this.#birthday.getFullYear();
+        }
+
+
+        /**
+         * Sets the year of birth of the person to the given year, or the current year
+         * if the year is out of range.
+         *
+         * @param year  New year of birth
+         */
+        set yearOfBirth(year) {
+            let today = new Date();
+            if (year < 1 || year > today.getFullYear()) {
+                year = today.getFullYear();
+            }
+            this.#birthday.setFullYear(year);
+        }
+
+
+        /**
+         * Adds a fruit name to the list of fruits stored by this object
+         *
+         * @param fruitName     The name of a fruit (as a string)
+         */
+        set newFruit(fruitName) {
+            this.#fruits.push(fruitName);
+        }
+
+
+        /**
+         * Returns a string of the list of fruits stored by this object
+         * separated by slashes
+         *
+         * @returns {string}    List of fruits separated by /
+         */
+        get fruitList() {
+            return this.#fruits.join(" / ");
+        }
+    }
+
+
+    let neil = new Person("Neil Armstrong", 1930, 8, 30);
+    document.getElementById("output").innerHTML = neil.name + " would turn "
+        + neil.ageThisYear + " years old this year.";
+    neil.ageThisYear = 100; // won't change getter value, but not an error
+    document.getElementById("output").innerHTML += "<br>Age this year is now "
+        + neil.ageThisYear;
+
+    neil.yearOfBirth = 2000;
+    document.getElementById("output").innerHTML += "<br>Age this year is now "
+        + neil.ageThisYear;
+    window.alert("What will this give? " + neil.yearOfBirth); // results in undefined
+</script>
+</body>
+</html>

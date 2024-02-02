@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <!--
+    Filename: instructor_prototype.html
+    Author:   Michael Grzesina (grzesinam)
+    Date:     Winter 2024
+    Purpose:  Explore the prototype chain
+    -->
+    <title>Example of the prototype chain</title>
+</head>
+<body>
+<section id="output"></section>
+<script>
+    "use strict";
+
+    function Instructor(name, office, quirks, classes) {
+        this.name = name;
+        this.officeLocation = office;
+        this.quirks = quirks;
+        this.classes = classes; // makes a shallow copy of array passed in
+
+        // directly off the object - each instance has its own copy
+        this.greet = function() {
+            return this.name + " says hello";
+        }
+    }
+
+    // adding a property to the prototype
+    // available to all instances through the prototype chain
+    Instructor.prototype.program = "CST";
+
+    // adding a method to the prototype
+    // available to all instances through the prototype chain
+    Instructor.prototype.displayInfo = function() {
+        return this.name + " is in " + this.officeLocation
+            + " and is " + this.quirks + " (program: " + this.program + ")";
+    };
+
+    let ins1 = new Instructor("Mike", "240A.5", "Beardy", ["CWEB180", "MATH282"]);
+    let ins2 = new Instructor("Coralee", "240A.2", "Insightful", ["COSA190"]);
+    let ins = new Instructor("Sharon", "240A.6", "Retired", []);
+    let tcomIns = new Instructor("Susan", "Ave W", "Fictional", ["TCOM999"]);
+    tcomIns.program = "Communications";
+
+    console.log(ins1);
+    console.log(ins2);
+    console.log(ins);
+    console.log(tcomIns);
+
+    document.getElementById("output").innerHTML = ins1.displayInfo() + "<br>"
+        + ins2.displayInfo() + "<br>"
+        + ins.displayInfo() + "<br>"
+        + tcomIns.displayInfo();
+</script>
+</body>
+</html>

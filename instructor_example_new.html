@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    Filename:   instructor_example_new.html
+    Author:     Michael Grzesina (grzesinam)
+    Date:       Winter 2024
+    Purpose:    Practice creating objects using constructors
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>Instructor example</title>
+    <script src="scripts/showprops.js"></script>
+    <script src="scripts/Instructor_new.js"></script>
+</head>
+<body>
+<h1>Instructor objects</h1>
+<div id="output1"></div>
+
+<script>
+    "use strict";
+
+    const ins1 = new Instructor("Michael", "240A.5", "Beardy");
+    const ins2 = new Instructor("Coralee", "240A.4", "Insightful");
+    const tcomIns = new Instructor("Susan", "Ave W", "Fictional");
+    tcomIns.program = "Communications";
+
+    const outputArea = document.getElementById("output1");
+    outputArea.innerHTML = showProps("Instructor", ins1);
+    outputArea.innerHTML += ins1.displayInfo() + "<br />";
+    outputArea.innerHTML += "<br />" + showProps("Instructor", ins2);
+    outputArea.innerHTML += ins2.displayInfo() + "<br />";
+    outputArea.innerHTML += "<br />" + showProps("Instructor", tcomIns);
+    outputArea.innerHTML += tcomIns.displayInfo();
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <!--
+    Filename: shapes_from_json_done.html
+    Author:   Michael Grzesina (grzesinam)
+    Date:     Winter 2024
+    Purpose:  Explore JSON
+    -->
+    <title>Shapes from JSON</title>
+</head>
+<body>
+<ul id="output"></ul>
+
+<script>
+    "use strict";
+
+    // Some JSON data in a string
+    let jsonShapeData = `[{"shape": "circle", "color": "red", "size": 10},
+                     {"shape": "square", "color": "blue", "size": 20},
+                     {"shape": "circle", "color": "pink", "size": 15}]`;
+    let outputString = "";
+
+    // make an array of objects out of the string of JSON data
+    let shapeArray = JSON.parse(jsonShapeData);
+
+    // For each item, add an <li> describing the item
+    for (const item of shapeArray) {
+        outputString += `<li>A ${item.color} ${item.shape} of size ${item.size}</li>`;
+    }
+    document.getElementById("output").innerHTML = outputString;
+</script>
+</body>
+</html>

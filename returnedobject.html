@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--
+      Filename: returnedobject.html
+      Author:   Michael Grzesina (grzesinam)
+      Date:     Winter 2024
+      Purpose:  To demonstrate the use of objects
+    -->
+    <title>Example of returning an object from a function</title>
+</head>
+<body>
+    <p><label>Name: <input id="name" /></label></p>
+    <p><label>Mark: <input id="mark" type="number" min="0" max="100" /></label></p>
+    <p><button>Click Me!</button></p>
+
+    <p>Sorted results:</p>
+    <ol id="results"></ol>
+
+    <script>
+        "use strict";
+
+        // array of students
+        let arResults = [];
+
+        // count of number of students
+        let count = 0;
+
+        // reference to sorted list of marks
+        const resultsList = document.querySelector("#results");
+
+        // references to name and mark input boxes
+        const nameInput = document.querySelector("#name");
+        const markInput = document.querySelector("#mark");
+
+
+        /**
+         * Get the values from input boxes
+         * and return as an object with name and mark properties
+         * Mark should be a number, not a string
+         *
+         * @returns {{name: *, toString: (function(): string), mark: number}}
+         *          object containing name and mark properties
+         */
+        function readValues() {
+            // mark should be a number, not a string
+
+
+            // const person = {};
+            //
+            // person.name = nameInput.value;
+            // person.mark = parseFloat(markInput.value);
+            //
+            // return person;
+
+            // or:
+
+            const name = nameInput.value;
+            const mark = parseFloat(markInput.value);
+
+            return {
+                "name": name,
+                "mark": mark,
+                "toString": function() {
+                    return "Student [ name=" + this.name + ", mark=" + this.mark + " ]";
+                }
+            }
+        }
+
+
+        /**
+         * Display a list of marks entered one at a time
+         */
+        document.querySelector("button").addEventListener("click", function() {
+            let result; // object containing name and mark of student
+            let strResults = ""; // string for creating results list
+
+            // read result from input boxes and place in array
+            result = readValues();
+            window.alert(result.name + "\n" + result.mark + "\n" + result.toString());
+            arResults[count++] = result;
+
+            // sort results array in descending order by the mark property
+            arResults.sort(function(first, second) {
+                return second.mark - first.mark;
+            });
+
+            // loop through array adding each item to list
+            for (let i = 0; i < count; i++) {
+                strResults += "<li>" + arResults[i].name + " " + arResults[i].mark + "</li>";
+            }
+
+            // display list of results
+            resultsList.innerHTML = strResults;
+        });
+    </script>
+</body>
+</html>

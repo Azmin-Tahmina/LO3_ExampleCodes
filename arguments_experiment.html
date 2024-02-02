@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    Filename:   arguments_experiment.html
+    Author:     Michael Grzesina (grzesinam)
+    Date:       Fall 2024
+    Purpose:    Demonstrate the arguments object and rest syntax
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>Arguments Experiment</title>
+</head>
+<body>
+<h1>Arguments Experiment</h1>
+<p>See console for results</p>
+
+<script>
+    "use strict";
+
+    const sampleArray = [1, 1, 2, 3, 5, 8];
+
+
+    /**
+     * Adds two numbers passed in and returns the result.
+     *
+     * @param a       First value passed in
+     * @param b       Second value passed in
+     * @returns {*}   Sum of the values passed in
+     */
+    function add2(a, b) {
+        return a + b;
+    }
+
+
+    /**
+     * Adds up all values in an array of numbers passed in
+     * and returns the result.
+     *
+     * @param arValues   an array of numbers
+     * @returns {number} the sum of all numbers in the given array
+     */
+    function addArray(arValues) {
+        let sum = 0;
+        for (let i = 0; i < arValues.length; i++) {
+            sum += arValues[i];
+        }
+        return sum;
+    }
+
+
+    /**
+     * Adds up all numbers given as arguments using the arguments array-like object.
+     *
+     * @returns {number} Sum of all numbers passed in
+     */
+    function addArgs() {
+        let sum = 0;
+        for (let i = 0; i < arguments.length; i++) {
+            sum += arguments[i];
+        }
+        return sum;
+    }
+
+
+    /**
+     * Adds up all numbers given as arguments using "rest syntax" (in ES6+) to get
+     * an array of the rest of the arguments passed in.
+     *
+     * @param theArgs
+     * @returns {*}
+     */
+    function addArgsRest(...theArgs) {
+        return theArgs.reduce((previous, current) => previous + current);
+    }
+
+
+    console.log("Sum of two numbers is " + add2(3, 4));
+    console.log("Sum of number plus the default is " + add2(3));
+    console.log("Sum of the array " + sampleArray + " is " + addArray(sampleArray));
+    console.log("Sum of the arguments is " + addArgs(1, 1, 2, 3, 5, 8));
+    console.log("Sum of the arguments is " + addArgsRest(1, 1, 2, 3, 5, 8));
+</script>
+</body>
+</html>

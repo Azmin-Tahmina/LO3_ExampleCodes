@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    Filename:   date_experiments.html
+    Author:     Michael Grzesina (grzesinam)
+    Date:       Winter 2024
+    Purpose:    Use the JavaScript built-in Date object
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>Date Experiments</title>
+</head>
+<body>
+<p>Today's date is <span id="today"></span></p>
+<p>My birthday is <span id="birthday"></span>
+    so I am currently <span id="age"></span> years old.</p>
+<p>90 days in the future, it will be <span id="ninety"></span></p>
+
+<script>
+    "use strict";
+
+    const monthArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September",
+        "October", "November", "December"];
+
+    let today = new Date();
+    let birthday = new Date(1969, 6, 20); // or new Date("July 20, 1969")
+    let ninetyDays = new Date();
+    ninetyDays.setDate(ninetyDays.getDate() + 90);
+
+    // Calculate age
+    // See https://stackoverflow.com/questions/4060004/calculate-age-given-the-birth-date-in-the-format-yyyymmdd
+    // Method 1 - Use difference in years, then check months and days
+    // let age = today.getFullYear() - birthday.getFullYear();
+    // let monthDiff = today.getMonth() - birthday.getMonth();
+    // if (monthDiff < 0 || monthDiff === 0 && today.getDate() < birthday.getDate()) {
+    //     age--;
+    // }
+    // Method 2 - Use difference in time, then create a new Date and check its years against 1970
+    let ageDiff = today.getTime() - birthday.getTime();
+    let ageDate = new Date(ageDiff); // milliseconds since Jan 1 1970
+    let age = ageDate.getFullYear() - 1970;
+
+    document.getElementById("today").innerHTML = today.toString();
+    document.getElementById("birthday").innerHTML = birthday.toString();
+    document.getElementById("age").innerHTML = age.toString();
+    document.getElementById("ninety").innerHTML = monthArray[ninetyDays.getMonth()] + " "
+        + ninetyDays.getDate() + ", "
+        + ninetyDays.getFullYear();
+</script>
+</body>
+</html>

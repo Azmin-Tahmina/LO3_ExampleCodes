@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    Filename:   showprops_example.html
+    Author:     Michael Grzesina (grzesinam)
+    Date:       Winter 2024
+    Purpose:    Use the showProps function
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>Example of showProps() function</title>
+    <script src="scripts/showprops.js"></script>
+</head>
+<body>
+<h1>Example of showProps() function on an object</h1>
+<div id="output"></div>
+
+<script>
+    "use strict";
+
+    let person = {
+        name: "Batman",
+        rivals: ["Joker", "Riddler"],
+        city: "Gotham"
+    };
+    document.getElementById("output").innerHTML = showProps("Hero", person);
+</script>
+</body>
+</html>

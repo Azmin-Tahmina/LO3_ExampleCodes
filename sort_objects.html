@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <!--
+    Filename: sort_objects.html
+    Author:   Michael Grzesina (grzesinam)
+    Date:     Winter 2024
+    Purpose:  Practice using objects when sorting
+    -->
+    <title>Object Sorting Practice</title>
+</head>
+<body>
+<section id="output"></section>
+<script>
+    "use strict";
+
+    let stu1 = { name: "millie", mark: 80 };
+    let stu2 = { name: "Ada", mark: 100 };
+    let stu3 = { name: "michael", mark: 70 };
+    let stu4 = { name: "Mike", mark: 90 };
+    let arStudents = [stu1, stu2, stu3, stu4];
+
+    let students = "";
+    for (const currentStudent of arStudents) {
+        students += currentStudent.name + ": " + currentStudent.mark + ", ";
+    }
+    students = students.slice(0, students.length - 2);
+    document.getElementById("output").innerHTML = "<p>" + students + "</p>";
+
+    // sort by mark in ascending order
+    arStudents.sort((a, b) => a.mark - b.mark);
+    students = "";
+    for (const currentStudent of arStudents) {
+        students += currentStudent.name + ": " + currentStudent.mark + ", ";
+    }
+    students = students.slice(0, students.length - 2);
+    document.getElementById("output").innerHTML += "<p>" + students + "</p>";
+
+    // sort by name in ascending order
+    arStudents.sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase() ? 1 :
+        (a.name.toLowerCase() === b.name.toLowerCase() ? 0 : -1));
+    students = "";
+    for (const currentStudent of arStudents) {
+        students += currentStudent.name + ": " + currentStudent.mark + ", ";
+    }
+    students = students.slice(0, students.length - 2);
+    document.getElementById("output").innerHTML += "<p>" + students + "</p>";
+</script>
+</body>
+</html>
