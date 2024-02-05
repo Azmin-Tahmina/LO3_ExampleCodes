@@ -261,6 +261,20 @@
    console.log(dog1);
    console.log(dog1.toString()+"\n"+dog1.makesSound()+"\n")
 
+   for(const property in dog1)
+    {
+        if(dog1.hasOwnProperty(property))
+        {
+            //personText += "PropertyName: "+property+ " , Value: "+objectVariable[property]+ "\n"
+            console.log("dog1's own property: "+property)
+        }
+        else
+        {
+            console.log("dog1's property from prototype: "+property)
+        }
+        
+    }
+
 
     function Instructor(name, office, quirks, classes) 
     {
