@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example Created 2024-02-02</title>
+</head>
+<body>
+<h1>Example Created 2024-02-05</h1>
+<div id="output"></div>
+<div></div>
+</body>
+<script>
+    "use strict"
+
+    // // let stu1 = {name: "A", mark:90}
+    // // let stu2 = {name: "B", mark:80}
+    // // let stu3 = {name: "C", mark:70}
+    // // let stu4 = {name: "D", mark:60}
+    
+    // // let studentArray = [stu1,stu2,stu3,stu4]
+
+    // // let studentText = ""
+
+    // // for(const student of studentArray)
+    // // {
+    // //     studentText += student.name+ " : "+student.mark+ " ,"
+    // // }
+   
+    // // console.log(studentText)
+    // // studentText  = studentText.slice(0,studentText.length-2)
+    // // console.log(studentText)
+
+    // // studentArray.sort((a,b)=>a.mark -b.mark);
+    // // arStudents.sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1);
+
+    // //Example of objects
+
+    // let firstObject = new Object()
+    // let secondObject = {}
+
+    //  firstObject["name"] = "SampleName"
+    //  firstObject["age"] = 20
+    //  firstObject["gretting"] = function()
+    //  {
+    //     return "Hello "+ this.name
+    //  } 
+
+    //  secondObject = {
+    //      name: "SampleName2",
+    //      age: 25,
+    //      gretting: function()
+    //      {
+    //         return "Hello "+ this.name 
+    //      }
+
+    //  }
+
+
+    // //  console.log("For firstobject: \n")
+    // //  console.log(firstObject["name"])
+    // //  console.log(firstObject.age)
+
+    // //Format:
+    // // for (someVariable in someObject) {
+	// // 	loop statements;
+	// // }
+
+    // // let prop;
+    // // for (prop in b) {
+    // //     console.log(prop + " = " + b[prop]);
+    // // }
+
+
+    //  let outputText1 = "First Object: \n"
+    //  // for in loop use object["property"]
+    //  for(const itemName in firstObject)
+    //  {
+    //     outputText1 += "Property name: "+itemName+ " has value "+firstObject[itemName]+"\n"
+    //  }
+    //  console.log(outputText1)
+
+    //  // for in loop use object["property"]
+    //  let outputText2 = "Second Object: \n"
+    //  for(const itemName in secondObject)
+    //  {
+    //     outputText2 += "Property name: "+itemName+ " has value "+secondObject[itemName]+"\n"
+    //  }
+    //  console.log(outputText2)
+
+    // let stu1 = {name: "A", mark:90}
+    // let stu2 = {name: "B", mark:80, id: "test"}
+    // let stu3 = {name: "C", mark:70}
+    // let stu4 = {name: "D", mark:60, section: "A"}
+
+    // let arrayOfStudents = [stu1,stu2,stu3,stu4]
+
+    // let studentText = ""
+    // let studentTextForProperties = ""
+
+    // console.log("Array of Objects Example: \n")
+
+    // for (const eachStudent of arrayOfStudents)
+    // {
+    //     //eachStudent object
+    //     console.log(eachStudent)
+    //    //studentText += "Name :"+eachStudent.name+ " Mark: "+eachStudent.mark+" ,"
+
+    //    // We don't know about properties
+    //    // for in loop use object["property"]
+    // //    for(const property in eachStudent)
+    // //    {
+    // //     studentTextForProperties += "PropertyName: "+property+ " , Value: "+eachStudent[property]+ " ,"
+    // //    }
+
+    // //    studentTextForProperties += "\n"
+
+    // }
+    
+    // console.log(studentText.slice(0,studentText.length-2))
+
+    // arrayOfStudents.sort((a, b) => a.mark - b.mark);
+
+    // for (const eachStudent of arrayOfStudents)
+    // {
+    //    studentText += "Name :"+eachStudent.name+ " Mark: "+eachStudent.mark+" ,"
+    // }
+    // console.log(studentText.slice(0,studentText.length-2))
+
+
+    // arrayOfStudents.sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1);
+    
+    // for (const eachStudent of arrayOfStudents)
+    // {
+    //    studentText += "Name :"+eachStudent.name+ " Mark: "+eachStudent.mark+" ,"
+    // }
+
+    // console.log(studentText.slice(0,studentText.length-2))
+
+    // console.log(studentTextForProperties)
+
+
+    // let person = {
+    //     name: "Batman",
+    //     rivals: ["Joker", "Riddler"],
+    //     city: "Gotham"
+    // };
+
+    // let personText = ""
+
+    // function showPeoperty(titleName,objectVariable)
+    // {
+    //     personText += "Title: "+titleName+"\n"
+    //     for(const property in objectVariable)
+    //     {
+    //         if(objectVariable.hasOwnProperty(property))
+    //         {
+    //             personText += "PropertyName: "+property+ " , Value: "+objectVariable[property]+ "\n"
+    //         }
+            
+    //     }
+
+    //     return personText
+
+    // }
+
+    // console.log(showPeoperty("Hero",person))
+    
+
+   // Class Example
+
+   class pet{
+    name
+    animalType
+    licensed
+    //private variable
+    #price
+
+    //Trying to set the price from the constructor
+    constructor(name,animalType,licensed)
+    {
+        this.name =  name 
+        this.animalType = animalType
+        this.licensed = licensed 
+        //this.price = price
+        // this.#price = price
+    }
+
+    toString() 
+    {
+        return this.name + " is a(n) " + this.animalType + " whose licensed status is " + this.licensed;
+    }
+
+    // makesSound() 
+    // {
+    //     return this.name + " the " + this.animalType + " makes noise.";
+    // }
+
+    // private variable
+    setPrice(price)
+    {
+        this.price = price
+    }
+
+    getPrice()
+    {
+        return "Price of the pet named "+this.name+"is "+this.price
+    }
+
+    #noise() {
+        return this.animalType + " makes noise.";
+    }
+
+    makesSound() {
+        return this.name + " the " + this.#noise();
+    }
+
+    newMethod()
+    {}
+
+   }
+
+    // let pet1 = new pet("Fluffy", "cat", false);
+    // let pet2 = new pet("Fido", "dog", true);
+    // pet1.setPrice(100)
+    // pet2.setPrice(200)
+    // console.log(pet1);
+    // console.log(pet2);
+
+    // //console.log(pet1.toString()+"\n"+pet1.makesSound()+"\n"+pet1.getPrice()+"\n"+pet1.noise()) 
+    // //error for private class
+    // console.log(pet2.toString()+"\n"+pet2.makesSound()+"\n"+pet2.getPrice())
+
+    // let pet3 = new pet("Fluffy", "cat", false,300);
+    // console.log(pet3.toString()+"\n"+pet3.makesSound()+"\n"+pet3.getPrice())
+
+   class dog extends pet
+   {
+
+    dangerous
+
+    constructor(name,licensed,dangerous)
+    {
+        super(name,"Dog",licensed)
+        this.dangerous = dangerous
+    }
+
+    // method overridding
+    makesSound() {
+        return this.name + " the dog " 
+            + (this.dangerous ? "barks angrily." : "says woof and wags its tail.");
+    }
+
+   }
+
+
+   let pet1 = new pet("Fluffy", "cat", false);
+   console.log(pet1);
+   console.log(pet1.toString()+"\n"+pet1.makesSound()+"\n")
+    
+   let dog1 = new dog("Fido", true, false);
+   console.log(dog1);
+   console.log(dog1.toString()+"\n"+dog1.makesSound()+"\n")
+
+
+    function Instructor(name, office, quirks, classes) 
+    {
+        this.name = name;
+        this.officeLocation = office;
+        this.quirks = quirks;
+        this.classes = classes; // makes a shallow copy of array passed in
+
+        this.greet = function() {
+            return this.name + " says hello";
+        }
+    }
+
+
+    let tcomIns = new Instructor("Susan", "Ave W", "Fictional", ["TCOM999"]);
+    tcomIns.testProperty1 = "Test1"
+    tcomIns.testProperty2 = "test2"
+	tcomIns.program = "Communications";
+   
+
+    Instructor.prototype.displayInfo = function() {
+    return this.name + " is in " + this.officeLocation
+        + " and is " + this.quirks + " (program: " + this.program + ")";
+    };
+
+
+    let cst = new Instructor("cstInstructor", "Ave W", "Fictional", ["TCOM999"]);
+	cst.program = "cst";
+    cst.testProperty3 = "test"
+    cst.testProperty4 = "test"
+
+    console.log(cst.displayInfo())
+    console.log(tcomIns.displayInfo())
+
+    console.log(tcomIns)
+    console.log(cst)
+
+    
+    for(const property in cst)
+    {
+        if(cst.hasOwnProperty(property))
+        {
+            //personText += "PropertyName: "+property+ " , Value: "+objectVariable[property]+ "\n"
+            console.log("Cst's own property: "+property)
+        }
+        else
+        {
+            console.log("Cst's property from prototype: "+property)
+        }
+        
+    }
+
+    for(const property in tcomIns)
+    {
+        if(tcomIns.hasOwnProperty(property))
+        {
+            //personText += "PropertyName: "+property+ " , Value: "+objectVariable[property]+ "\n"
+            console.log("tcomIns's own property: "+property)
+        }
+        else
+        {
+            console.log("tcomIns's property from prototype: "+property)
+        }
+        
+    }
+
+
+
+
+     
+</script>
+</html>
