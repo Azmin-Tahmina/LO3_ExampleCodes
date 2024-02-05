@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listing properties with for...in</title>
+</head>
+<body>
+    <p>Today's date is <span id="today"></span></p>
+    <p>My birthday is <span id="birthday"></span></p>
+       so I am currently <span id="age"></span> years old.</p>
+    <p>90 days in the future, it will be <span id="ninety"></span></p>
+    
+    <p>90 days in the future, it will be <span id="ninety"></span></p>
+ 
+    <div><img src="media/HappyFaceNoSmile.jpg" alt="Smiley Face"/></div>
+    <section id="output"></section>
+    <script>
+       "use strict";
+
+       const monthArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September",
+            "October", "November", "December"];
+
+ 
+       let today = new Date();
+       let birthday = new Date(1969, 6, 20); // or new Date("July 20, 1969")
+       let ninetyDays = new Date()
+       ninetyDays.setDate(ninetyDays.getDate()+90)
+ 
+       document.getElementById("today").innerHTML = today.toString();
+       document.getElementById("birthday").innerHTML = birthday.toString();
+       document.getElementById("ninety").innerHTML = monthArray[ninetyDays.getMonth()]+
+       " "+ ninetyDays.getDate()+ ", "+ninetyDays.getFullYear()
+
+       let preloadedImage = new Image()
+       preloadedImage.src = "media/HappyFaceNoSmile.jpg"
+
+       document.querySelector("img").onmouseover = function() {
+          document.querySelector("img").src = "media/HappyFaceSmile.jpg";
+        };
+
+      document.querySelector("img").onmouseout = function() {
+          document.querySelector("img").src = "media/HappyFaceNoSmile.jpg";
+        };
+
+       function add2(a, b) {
+          return a + b;
+       }
+
+       console.log("Sum of two numbers is " + add2(3, 4));
+
+       const sampleArray = [1, 1, 2, 3, 5, 8];
+
+       function addArray(arrValues)
+       {
+            let sum = 0
+            for(let i=0;i<arrValues.length;i++)
+            {
+                sum += arrValues[i]
+            }
+            return sum
+       }
+
+       function addArgs()
+       {
+            let sum = 0
+            for(let i=0;i<arguments.length;i++)
+            {
+                sum += arguments[i]
+            }
+            return sum
+       }
+
+       function addArgsRest(...theArgs)
+       {
+            return theArgs.reduce((previous,current) => previous+current)
+       }
+
+       console.log("Sum of the array " + sampleArray + " is " + addArray(sampleArray));
+       console.log("Sum of the arguments is " + addArgs(1, 1, 2, 3, 5, 8));
+       console.log("Sum of the arguments is " + addArgsRest(1, 1, 2, 3, 5, 8));
+
+       let b = new Object()
+       let r ={}
+
+       b.name = "Batman"
+       b.rivals = ["Joker","Poison Ivy"]
+       b.greet = function(){
+            return "Hi, I'm "+this.name
+       }
+
+       let s = {
+		name: "Spider-Man",
+		age: 19,
+		rivals: ["Doc Oc"],
+		greet: function() {
+			return "Never fear! " + this.name + " is here!";
+		}
+	 }
+
+     // two ways to access the properties
+        console.log(b.name);
+        console.log(b.rivals)
+        console.log(b.greet)
+
+        console.log(s["name"])
+        console.log(s["rivals"])
+        console.log(s["greet"])
+
+        let stu1 = { name: "millie", mark: 80 };
+        let stu2 = { name: "Ada", mark: 100 };
+        let stu3 = { name: "michael", mark: 70 };
+        let stu4 = { name: "Mike", mark: 90 };
+        let arStudents = [stu1, stu2, stu3, stu4];
+
+        let students = ""
+        for(const currentStudent of arStudents)
+        {
+            students += currentStudent.name+ ": "+currentStudent.mark+ ", <br>"
+        }
+
+        students = students.slice(0, students.length-2)
+        document.getElementById("output").innerHTML = "<p>" + students + "</p>";
+
+        let student = new Object();
+        student.name = "Mike";
+        student.year = 1;
+        student.classes = ["CWEB 180", "CWEB 190"];
+
+        for (const prop in student) {
+            document.getElementById("output").innerHTML +=
+                "<p>" + prop + " = " + student[prop] + "</p>";
+        }
+
+
+        let person = {
+        name: "Batman",
+        rivals: ["Joker", "Riddler"],
+        city: "Gotham"
+        };
+
+        function showProps(title, object) 
+        {
+            let objectString = title + "<br />";
+            for (const prop in object) 
+            {
+                if (object.hasOwnProperty(prop))
+                {
+                    objectString += prop + " = " + object[prop] + "<br />";
+                }
+            }
+
+            return objectString;
+        }
+        document.getElementById("output").innerHTML = showProps("Hero", person);
+
+    </script>
+</body>
+</html>

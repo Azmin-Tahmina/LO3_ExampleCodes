@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example Created 2024-02-02</title>
+</head>
+<body>
+<h1>Example Created 2024-02-02</h1>
+<div id="output"></div>
+<div><img src="media/HappyFaceNoSmile.jpg" alt="Smiley Face" /></div>
+</body>
+<script>
+    "use strict"
+
+    // class string{
+    //     let val;
+    //     string(let value)
+    //     {
+    //         value = this.val
+    //     }
+
+    //     function toSting()
+    //     {
+    //         return this.val.toSting()
+    //     }
+    // }
+
+    // let newArray = new Array("1","two","3","testValue")
+    // let str1Object = new String("test1")
+    // let copyofstr1Object = str1Object
+    // let str2Object = new String("test1")
+
+    // let str3 = "test1"
+    // let str4 = "test1"
+
+    // // checking == and ===
+
+    // // string object
+    // if(str1Object==str2Object)
+    // {
+    //     console.log("They are equal with ==")
+    // }
+    // else
+    // {
+    //     console.log("They are not equal with ==")
+    // }
+
+    // if(str1Object===str2Object)
+    // {
+    //     console.log("They are equal with ===")
+    // }
+    // else
+    // {
+    //     console.log("They are not equal with ===")
+    // }
+
+
+    // if(str1Object==copyofstr1Object)
+    // {
+    //     console.log("They are equal with ==")
+    // }
+    // else
+    // {
+    //     console.log("They are not equal with ==")
+    // }
+
+    // if(str1Object===copyofstr1Object)
+    // {
+    //     console.log("They are equal with ===")
+    // }
+    // else
+    // {
+    //     console.log("They are not equal with ===")
+    // }
+
+    // // string variable
+    // if(str3==str4)
+    // {
+    //     console.log("They are equal with ==")
+    // }
+    // else
+    // {
+    //     console.log("They are not equal with ==")
+    // }
+
+    // if(str3===str4)
+    // {
+    //     console.log("They are equal with ===")
+    // }
+    // else
+    // {
+    //     console.log("They are not equal with ===")
+    // }
+
+    // console.log(str1Object.toString())
+    // console.log(str2Object.toString())
+
+    // if(str1Object.toString()==str2Object.toString())
+    // {
+    //     console.log("They are equal with ==")
+    // }
+    // else
+    // {
+    //     console.log("They are not equal with ==")
+    // }
+
+    // if(str1Object.toString()===str2Object.toString())
+    // {
+    //     console.log("They are equal with ===")
+    // }
+    // else
+    // {
+    //     console.log("They are not equal with ===")
+    // }
+
+    // date object
+
+    let dateToday = new Date()
+    console.log(dateToday)
+    // new Date()
+    // new Date(value)
+    // new Date(dateString)
+    // new Date(dateObject)
+
+    // new Date(year, monthIndex)
+    // new Date(year, monthIndex, day)
+    // new Date(year, monthIndex, day, hours)
+    // new Date(year, monthIndex, day, hours, minutes)
+    // new Date(year, monthIndex, day, hours, minutes, seconds)
+    // new Date(year, monthIndex, day, hours, minutes, seconds, milliseconds)
+
+    let birthday = new Date(1969, 6, 20);
+    console.log("Today's Date"+ dateToday.toString())
+    console.log("Birthday Date"+ birthday.toString())
+
+    //Date.setDate(day) 
+    //Date.getDate()
+
+    const monthArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September",
+            "October", "November", "December"];
+
+    let ninetydaysAfter = new Date()
+    ninetydaysAfter.setDate(ninetydaysAfter.getDate()+90)
+
+    console.log("Birthday Date"+ ninetydaysAfter.toString())
+    console.log(monthArray[ninetydaysAfter.getMonth()]+" "+ninetydaysAfter.getDay()+", "+ninetydaysAfter.getFullYear())
+
+    let ageDiff = dateToday.getTime() - birthday.getTime()
+    console.log("Age Diff: "+ageDiff)
+    let ageDate = new Date(ageDiff)
+    console.log("Age Date: "+ageDate)
+    let actualAge = ageDate.getFullYear()-1970
+    console.log("Actual Age: "+actualAge)
+
+
+    let preloadedImage = new Image()
+    preloadedImage.src = "media/HappyFaceNoSmile.jpg"
+
+    document.querySelector("img").onmouseover = function() {
+          document.querySelector("img").src = "media/HappyFaceSmile.jpg";
+      };
+
+      document.querySelector("img").onmouseout = function() {
+          document.querySelector("img").src = "media/HappyFaceNoSmile.jpg";
+      };
+
+
+      //public static void main(String[] args)
+      // function testArguments()
+
+      function add2(a, b) 
+      {
+          return a + b;
+      }
+
+      console.log("Sum: "+add2(3,4))
+
+      let arrayForFunction = [1, 1, 2, 3, 5, 8];
+
+      function addArray(arrayArg)
+      {
+         let sum = 0
+         for(let i=0;i<arrayArg.length;i++)
+         {
+            sum += arrayArg[i]
+         }
+         return sum
+      }
+
+      console.log("Array Sum: "+ addArray(arrayForFunction))
+
+      function addArgs()
+      {
+        let sum = 0
+         for(let i=0;i<arguments.length;i++)
+         {
+            sum += arguments[i]
+         }
+         return sum
+      }
+
+      console.log("Argument Sum: "+ addArgs(1, 1, 2, 3, 5, 8))
+
+    //   function addargsForRest(...theArgs){
+
+    //   }
+
+    function myFunc(previous, current) {
+        return previous + current;
+    }
+      
+    function addArgsRest(...theArgs) {
+        return theArgs.reduce((previous, current) => previous + current);
+     }
+
+     function addArgsRest1(...theArgs) {
+        return theArgs.reduce(myFunc);
+     }
+
+
+     console.log("Argument Sum For RestArgs: "+ addArgsRest(1, 1, 2, 3, 5, 8))
+     console.log("Argument Sum For RestArgs: "+ addArgsRest1(1, 1, 2, 3, 5, 8))
+
+     //defining object
+
+     let firstObject = new Object()
+     let secondObject = {}
+
+     firstObject["name"] = "SampleName"
+     firstObject["age"] = 20
+     firstObject["gretting"] = function()
+     {
+        return "Hello "+ this.name
+     } 
+
+     secondObject = {
+         name: "SampleName2",
+         age: 25,
+         gretting: function()
+         {
+            return "Hello "+ this.name 
+         }
+
+     }
+
+
+     console.log("For firstobject: \n")
+     console.log(firstObject["name"])
+     console.log(firstObject.age)
+
+</script>
+</html>
