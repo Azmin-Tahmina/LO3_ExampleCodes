@@ -169,56 +169,57 @@
 
    // Class Example
 
-   class pet{
-    name
-    animalType
-    licensed
-    //private variable
-    #price
+//    class pet{
+//     name
+//     animalType
+//     licensed
+//     //testVariable
+//     //private variable
+//     #price
 
-    //Trying to set the price from the constructor
-    constructor(name,animalType,licensed)
-    {
-        this.name =  name 
-        this.animalType = animalType
-        this.licensed = licensed 
-        //this.price = price
-        // this.#price = price
-    }
+//     //Trying to set the price from the constructor
+//     constructor(name,animalType,licensed)
+//     {
+//         this.name =  name 
+//         this.animalType = animalType
+//         this.licensed = licensed 
+//         //this.price = price
+//         // this.#price = price // accessing private variable
+//     }
 
-    toString() 
-    {
-        return this.name + " is a(n) " + this.animalType + " whose licensed status is " + this.licensed;
-    }
+//     toString() 
+//     {
+//         return this.name + " is a(n) " + this.animalType + " whose licensed status is " + this.licensed;
+//     }
 
-    // makesSound() 
-    // {
-    //     return this.name + " the " + this.animalType + " makes noise.";
-    // }
+//     // makesSound() 
+//     // {
+//     //     return this.name + " the " + this.animalType + " makes noise.";
+//     // }
 
-    // private variable
-    setPrice(price)
-    {
-        this.price = price
-    }
+//     // private variable
+//     setPrice(price)
+//     {
+//         this.#price = price
+//     }
 
-    getPrice()
-    {
-        return "Price of the pet named "+this.name+"is "+this.price
-    }
+//     getPrice()
+//     {
+//         return "Price of the pet named "+this.name+"is "+this.#price
+//     }
 
-    #noise() {
-        return this.animalType + " makes noise.";
-    }
+//     #noise() {
+//         return this.animalType + " makes noise.";
+//     }
 
-    makesSound() {
-        return this.name + " the " + this.#noise();
-    }
+//     makesSound() {
+//         return this.name + " the " + this.#noise();
+//     }
 
-    newMethod()
-    {}
+//     newMethod()
+//     {}
 
-   }
+//    }
 
     // let pet1 = new pet("Fluffy", "cat", false);
     // let pet2 = new pet("Fido", "dog", true);
@@ -234,114 +235,258 @@
     // let pet3 = new pet("Fluffy", "cat", false,300);
     // console.log(pet3.toString()+"\n"+pet3.makesSound()+"\n"+pet3.getPrice())
 
-   class dog extends pet
-   {
+//    class dog extends pet
+//    {
 
-    dangerous
+//     dangerous
 
-    constructor(name,licensed,dangerous)
-    {
-        super(name,"Dog",licensed)
-        this.dangerous = dangerous
-    }
+//     constructor(name,licensed,dangerous)
+//     {
+//         super(name,"Dog",licensed)
+//         this.dangerous = dangerous
+//     }
 
-    // method overridding
-    makesSound() {
-        return this.name + " the dog " 
-            + (this.dangerous ? "barks angrily." : "says woof and wags its tail.");
-    }
+//     // method overridding
+//     makesSound() {
+//         return this.name + " the dog " 
+//             + (this.dangerous ? "barks angrily." : "says woof and wags its tail.");
+//     }
 
-   }
+//    }
 
 
-   let pet1 = new pet("Fluffy", "cat", false);
-   console.log(pet1);
-   console.log(pet1.toString()+"\n"+pet1.makesSound()+"\n")
+//    let pet1 = new pet("Fluffy", "cat", false);
+//    console.log(pet1);
+//    console.log(pet1.toString()+"\n"+pet1.makesSound()+"\n")
     
-   let dog1 = new dog("Fido", true, false);
-   console.log(dog1);
-   console.log(dog1.toString()+"\n"+dog1.makesSound()+"\n")
+//    let dog1 = new dog("Fido", true, false);
+//    console.log(dog1);
+//    console.log(dog1.toString()+"\n"+dog1.makesSound()+"\n")
 
-   for(const property in dog1)
-    {
-        if(dog1.hasOwnProperty(property))
-        {
-            //personText += "PropertyName: "+property+ " , Value: "+objectVariable[property]+ "\n"
-            console.log("dog1's own property: "+property)
-        }
-        else
-        {
-            console.log("dog1's property from prototype: "+property)
-        }
+//    for(const property in dog1)
+//     {
+//         if(dog1.hasOwnProperty(property))
+//         {
+//             //personText += "PropertyName: "+property+ " , Value: "+objectVariable[property]+ "\n"
+//             console.log("dog1's own property: "+property)
+//         }
+//         else
+//         {
+//             console.log("dog1's property from prototype: "+property)
+//         }
         
-    }
+//     }
 
 
-    function Instructor(name, office, quirks, classes) 
-    {
-        this.name = name;
-        this.officeLocation = office;
-        this.quirks = quirks;
-        this.classes = classes; // makes a shallow copy of array passed in
 
-        this.greet = function() {
-            return this.name + " says hello";
-        }
-    }
+    // function Instructor(name, office, quirks, classes) 
+    // {
+    //     this.name = name;
+    //     this.officeLocation = office;
+    //     this.quirks = quirks;
+    //     this.classes = classes; // makes a shallow copy of array passed in
+
+    //     this.greet = function() {
+    //         return this.name + " says hello";
+    //     }
+    // }
+
+    // class representation of Instructor 
+    // class InstructorClass{
+    //     name
+    //     office
+    //     quirks
+    //     classes
+    //     program = "ICT"
+
+    //     constructor(name, office, quirks, classes)
+    //     {
+    //         this.name = name
+    //         this.office = office
+    //         this.quirks = quirks
+    //         this.classes = classes
+
+    //     }
+
+    //     greet()
+    //     {
+    //         return this.name+ ", Hello!"
+    //     }
+
+    //     displayInfo()
+    //     {
+    //         return this.name + " is in " + this.office
+    //                  + " and is " + this.quirks + " (program: " + this.program + ")";
+    //     }
+
+    // }
+
+    // //
+    // function Instructor(name, office, quirks, classes)
+    // {
+    //     this.name = name
+    //     this.office = office
+    //     this.quirks = quirks
+    //     this.classes = classes
+
+    //     this.greet = function(){
+    //         return this.name+ ", Hello!"
+    //     }
+
+    // }
+
+    //     //constructor -> Prototype -> all objects created from this contructor will be chained though the prototype
+
+    //     let cstInstructor = new Instructor("A","B","C",["D","E","F"])
+
+    //     cstInstructor.department = "CST"
+    //     cstInstructor.departmentHead = "Test"
+    //     cstInstructor.testVariable = "Test2"
+
+    //     let tcomInstructor = new Instructor("G","H","I",["J","K","L"])
+       
+    //     tcomInstructor.testvariable2 = "testvalue"
+
+    //     console.log(cstInstructor)
+    //     console.log(tcomInstructor)
 
 
-    let tcomIns = new Instructor("Susan", "Ave W", "Fictional", ["TCOM999"]);
-    tcomIns.testProperty1 = "Test1"
-    tcomIns.testProperty2 = "test2"
-	tcomIns.program = "Communications";
+    //     Instructor.prototype.program = "ICT"
+    //     Instructor.prototype.testVariable1 = "testValue"
+    //     Instructor.prototype.displayInfo = function() {
+    //                  return this.name + " is in " + this.officeLocation
+    //                  + " and is " + this.quirks + " (program: " + this.program + ")";
+    //     };
+
+    //     console.log(cstInstructor.displayInfo())
+    //     console.log(tcomInstructor.displayInfo())
+
+    //     for(const property in cstInstructor)
+    //     {
+    //         if(cstInstructor.hasOwnProperty(property))
+    //         {
+    //             console.log("cstInstructor's own property: "+property)
+    //         }
+    //         else
+    //         {
+    //             console.log("cstInstructor's property from prototype: "+property)
+    //         }
+    //     }
+
+
+    //     for(const property in tcomInstructor)
+    //     {
+    //         if(tcomInstructor.hasOwnProperty(property))
+    //         {
+    //             console.log("tcomInstructor's own property: "+property)
+    //         }
+    //         else
+    //         {
+    //             console.log("tcomInstructor's property from prototype: "+property)
+    //         }
+    //     }
+
+
+        // for(const property in cst)
+        // {
+        //     if(cst.hasOwnProperty(property))
+        //     {
+        //         //personText += "PropertyName: "+property+ " , Value: "+objectVariable[property]+ "\n"
+        //         console.log("Cst's own property: "+property)
+        //     }
+        //     else
+        //     {
+        //         console.log("Cst's property from prototype: "+property)
+        //     }
+            
+        // }
+
+
+    // let tcomIns = new Instructor("Susan", "Ave W", "Fictional", ["TCOM999"]);
+    // tcomIns.testProperty1 = "Test1"
+    // tcomIns.testProperty2 = "test2"
+	// tcomIns.program = "Communications";
+
+    // Instructor.prototype.anyVariable = "test"
    
 
-    Instructor.prototype.displayInfo = function() {
-    return this.name + " is in " + this.officeLocation
-        + " and is " + this.quirks + " (program: " + this.program + ")";
-    };
+    // Instructor.prototype.displayInfo = function() {
+    // return this.name + " is in " + this.officeLocation
+    //     + " and is " + this.quirks + " (program: " + this.program + ")";
+    // };
 
 
-    let cst = new Instructor("cstInstructor", "Ave W", "Fictional", ["TCOM999"]);
-	cst.program = "cst";
-    cst.testProperty3 = "test"
-    cst.testProperty4 = "test"
+    // let cst = new Instructor("cstInstructor", "Ave W", "Fictional", ["TCOM999"]);
+	// cst.program = "cst";
+    // cst.testProperty3 = "test"
+    // cst.testProperty4 = "test"
 
-    console.log(cst.displayInfo())
-    console.log(tcomIns.displayInfo())
+    // console.log(cst.displayInfo())
+    // console.log(tcomIns.displayInfo())
 
-    console.log(tcomIns)
-    console.log(cst)
+    // console.log(tcomIns)
+    // console.log(cst)
 
     
-    for(const property in cst)
-    {
-        if(cst.hasOwnProperty(property))
-        {
-            //personText += "PropertyName: "+property+ " , Value: "+objectVariable[property]+ "\n"
-            console.log("Cst's own property: "+property)
-        }
-        else
-        {
-            console.log("Cst's property from prototype: "+property)
-        }
+    // for(const property in cst)
+    // {
+    //     if(cst.hasOwnProperty(property))
+    //     {
+    //         //personText += "PropertyName: "+property+ " , Value: "+objectVariable[property]+ "\n"
+    //         console.log("Cst's own property: "+property)
+    //     }
+    //     else
+    //     {
+    //         console.log("Cst's property from prototype: "+property)
+    //     }
         
-    }
+    // }
 
-    for(const property in tcomIns)
-    {
-        if(tcomIns.hasOwnProperty(property))
-        {
-            //personText += "PropertyName: "+property+ " , Value: "+objectVariable[property]+ "\n"
-            console.log("tcomIns's own property: "+property)
-        }
-        else
-        {
-            console.log("tcomIns's property from prototype: "+property)
-        }
+    // for(const property in tcomIns)
+    // {
+    //     if(tcomIns.hasOwnProperty(property))
+    //     {
+    //         //personText += "PropertyName: "+property+ " , Value: "+objectVariable[property]+ "\n"
+    //         console.log("tcomIns's own property: "+property)
+    //     }
+    //     else
+    //     {
+    //         console.log("tcomIns's property from prototype: "+property)
+    //     }
         
-    }
+    // }
 
      
+    
+    // let outputString = "";
+
+    // make an array of objects out of the string of JSON data
+    // let shapeArray = JSON.parse(jsonShapeData);
+
+    function Shape(shape,color,size)
+    {
+        this.shape = shape
+        this.color = color
+        this.size = size
+    }
+
+    let shape1 = new Shape("A","B","C")
+    let shape2 = new Shape("D","E","F")
+    let shape3 = new Shape("G","H","I")
+    let shape4 = new Shape("J","K","L")
+
+    let spArray = [shape1,shape2,shape3,shape4]
+
+    console.log(spArray)
+
+    let shapeJsonArray = JSON.stringify(spArray)
+
+    console.log(shapeJsonArray)
+
+    let recreateShapeArrayofObjects = JSON.parse(shapeJsonArray)
+
+    console.log(recreateShapeArrayofObjects)
+
+
 </script>
 </html>

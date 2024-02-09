@@ -14,5 +14,13 @@
       "code": "LAW 100",
       "mark": 100
     }
+  },
+  {
+    "name": "TestName",
+    "studentNumber":"00001",
+    "course":{
+      "code": "CST 001",
+      "mark": 100   
+    }
   }
 ]
