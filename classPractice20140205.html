@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Example Created 2024-02-02</title>
+    <script src="scripts/jsonPractice.js" defer></script>
 </head>
 <body>
 <h1>Example Created 2024-02-05</h1>
@@ -35,26 +36,26 @@
 
     // //Example of objects
 
-    // let firstObject = new Object()
-    // let secondObject = {} // It cannot have prototype
+    let firstObject = new Object()
+    let secondObject = {} // It cannot have prototype
 
 
-    //  firstObject["name"] = "SampleName"
-    //  firstObject["age"] = 20
-    //  firstObject["gretting"] = function()
-    //  {
-    //     return "Hello "+ this.name
-    //  } 
+     firstObject["name"] = "SampleName"
+     firstObject["age"] = 20
+     firstObject["gretting"] = function()
+     {
+        return "Hello "+ this.name
+     } 
 
-    //  secondObject = {
-    //      name: "SampleName2",
-    //      age: 25,
-    //      gretting: function()
-    //      {
-    //         return "Hello "+ this.name 
-    //      }
+     secondObject = {
+         name: "SampleName2",
+         age: 25,
+         gretting: function()
+         {
+            return "Hello "+ this.name 
+         }
 
-    //  }
+     }
 
 
     // //  console.log("For firstobject: \n")
@@ -463,30 +464,7 @@
     // make an array of objects out of the string of JSON data
     // let shapeArray = JSON.parse(jsonShapeData);
 
-    function Shape(shape,color,size)
-    {
-        this.shape = shape
-        this.color = color
-        this.size = size
-    }
-
-    let shape1 = new Shape("A","B","C")
-    let shape2 = new Shape("D","E","F")
-    let shape3 = new Shape("G","H","I")
-    let shape4 = new Shape("J","K","L")
-
-    let spArray = [shape1,shape2,shape3,shape4]
-
-    console.log(spArray)
-
-    let shapeJsonArray = JSON.stringify(spArray)
-
-    console.log(shapeJsonArray)
-
-    let recreateShapeArrayofObjects = JSON.parse(shapeJsonArray)
-
-    console.log(recreateShapeArrayofObjects)
-
+   
 
 </script>
 </html>
