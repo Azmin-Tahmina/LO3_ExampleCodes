@@ -9,10 +9,47 @@
 <body>
 <h1>Example Created 2024-02-05</h1>
 <div id="output"></div>
+<div id="nameDiv">
+    <img alt="Previous" src="media/left-arrow.jpg" id="imgLeft" />
+    <span id="nameID"></span>
+    <img alt="Next" src="media/right-arrow.jpg" id="imgRight" />
+</div>
 <div></div>
 </body>
 <script>
     "use strict"
+
+    let length = 5
+    let counter = 1
+
+    // adding event for images
+
+    document.getElementById("imgRight").onclick = function(){
+        counter++;
+        if(counter>length)
+        {
+            counter=1
+        }
+       // window.alert("Hello! from right")
+       displayCounter(counter)
+    }
+
+    document.getElementById("imgLeft").onclick = function(){
+
+        counter--;
+        if(counter<=0)
+        {
+            counter=5
+        }
+        //window.alert("Hello! from left")
+        displayCounter(counter)
+    }
+
+    function displayCounter(number){
+        document.getElementById("nameID").innerHTML = "<b>"+number+"</b>"
+    }
+    
+
 
     // // let stu1 = {name: "A", mark:90}
     // // let stu2 = {name: "B", mark:80}
@@ -37,26 +74,26 @@
 
     // //Example of objects
 
-    let firstObject = new Object()
-    let secondObject = {} // It cannot have prototype
+    // let firstObject = new Object()
+    // let secondObject = {} // It cannot have prototype
 
 
-     firstObject["name"] = "SampleName"
-     firstObject["age"] = 20
-     firstObject["gretting"] = function()
-     {
-        return "Hello "+ this.name
-     } 
+    //  firstObject["name"] = "SampleName"
+    //  firstObject["age"] = 20
+    //  firstObject["gretting"] = function()
+    //  {
+    //     return "Hello "+ this.name
+    //  } 
 
-     secondObject = {
-         name: "SampleName2",
-         age: 25,
-         gretting: function()
-         {
-            return "Hello "+ this.name 
-         }
+    //  secondObject = {
+    //      name: "SampleName2",
+    //      age: 25,
+    //      gretting: function()
+    //      {
+    //         return "Hello "+ this.name 
+    //      }
 
-     }
+    //  }
 
 
     // //  console.log("For firstobject: \n")
@@ -464,6 +501,8 @@
 
     // make an array of objects out of the string of JSON data
     // let shapeArray = JSON.parse(jsonShapeData);
+
+
 
    
 
